@@ -55,6 +55,23 @@ let person = {
 console.log(person)
 
 
+// say we want to access the name of this person and change it
+//1. we may use the dot notation
+person.name = 'John'
+console.log(person)
+
+// 2. bracket notation and then extract take the specific name
+person['name'] = 'Mary';
+console.log(person.name);
+
+
+// dot notation is short
+//
+let selection = 'name';
+person[selection]='Mary';
+console.log(person.name)
+
+
 
 
 
