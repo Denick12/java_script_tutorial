@@ -88,6 +88,33 @@ console.log(selectedColors);
 console.log(selectedColors.length)
 
 
+//Functions in Js
+//A fxn is a set of statement that performs a task or calculates a value
+
+//simple first function in js
+function greet(){
+    console.log('Hello World');
+}
+greet();
+
+// Note: Parameter & arguments are used i.e; John and Mary used when calling the function are arguments, while name that is used in the first line of creating the function is a parameter
+//argument is the actual value supplied for the parameter
+function greetPerson(name){
+    console.log('Hello  ' + name);
+}
+greetPerson('John');
+greetPerson('Mary');
+
+// The function can be reused as many times as possible i.e.,
+greetPerson('DG')
+// A function can have multi parameters i.e.,
+function sayHello(name, lastname){
+    console.log('Hello ' + name + ' ' +lastname)
+}
+sayHello('John','Smith');
+
+
+
 
 
 
