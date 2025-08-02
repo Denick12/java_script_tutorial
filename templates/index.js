@@ -20,4 +20,27 @@ let lastName = 'Karan';
 console.log(firstName,lastName)
 
 
+// declaring a variable called interest rates
+// use const when you do not need to reassign variables
+// use let when you will need to reassign variables
+let interestRate = 0.3;
+// interestRate = 1;
+console.log(interestRate)
+
+const principalRate = 0.4;
+console.log(principalRate)
+
+// in java, we have 2 categories of data types; primitive/value types, reference type
+// primitive/value types : strings, booleans, Number, undefined, null
+
+let isApproved = true  //Boolean
+let myfirstName = undefined  //undefined
+let age = 30 //number
+let myLastName = null //null
+let selectedColor = null
+
+
+
+
+
 
