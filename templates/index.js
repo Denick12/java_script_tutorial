@@ -113,6 +113,23 @@ function sayHello(name, lastname){
 }
 sayHello('John','Smith');
 
+// Types of Functions
+// There is a cleaner way to write the above function and removing the concatenations
+sayHello()
+
+// calculating a value
+function square(number){
+    return number*number;
+}
+// either
+console.log(square(2))
+// or
+let number = square(2)
+console.log(number)
+
+//in console.log function, you can call in another function as above--- console.log(square(2)) or a simple string as console.log('Hello')
+
+
 
 
 
