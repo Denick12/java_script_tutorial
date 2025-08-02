@@ -69,7 +69,23 @@ console.log(person.name);
 //
 let selection = 'name';
 person[selection]='Mary';
-console.log(person.name)
+console.log(person.name);
+
+
+// Arrays - used when there is a list of objects for example; a list of products in a shopping cart, or a list of colors a user has selected
+let selectedColors = ['red','blue'];    //array is initialized with the two colors inside
+console.log(selectedColors);   //prints both colors
+
+// let's say you want to access the first color in the array
+console.log(selectedColors[0]);
+
+//add another element to our selected Colors list
+selectedColors[2] ='green';
+console.log(selectedColors);
+
+//An array is an object
+// we can look for the properties of an object using the dot notation,,,, everytime we declare an array using the [] the array receives the properties shown after you add the dot after the variable.
+console.log(selectedColors.length)
 
 
 
