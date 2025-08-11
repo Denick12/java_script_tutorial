@@ -6,12 +6,23 @@
         color: white;
         border: none;
     }
+    .red-button{
+
+        background-color:red;
+        color: white;
+        border: none;
+
+    }
+    .yellow-button{
+        background-color: yellow;
+    }
 </style>
 
 
 
 <!--creating a button-->
-<button title="Good Job">
+<!--using classes-->
+<button title="Good Job" class="red-button">
     Hello
 </button>
 
@@ -20,5 +31,5 @@
 
 <!--nesting-->
 <p>
-    paragraph of <button>Hello</button> text
+    paragraph of <button class="yellow-button">Hello</button> text
 </p>
