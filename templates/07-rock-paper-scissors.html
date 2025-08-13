@@ -17,7 +17,7 @@
 <!--    math.random generates a random number between 0 & 1-->
 <button onclick="
 
-    pickComputerMove();
+    const computerMove = pickComputerMove();
     let result = '';
     if (computerMove === 'rock'){
         result = 'Tie.'
@@ -32,7 +32,7 @@
 </button>
 
 <button onclick="
-    pickComputerMove();
+    const computerMove = pickComputerMove();
 
     let result = '';
     if (computerMove === 'rock'){
@@ -64,7 +64,8 @@
 
 <p>Click here to see final version of this Project</p>
 <script>
-    // let computerMove = '';
+    // let computerMove = '';   --Here we had this as a global variable but then returned it inside thr function
+    // This then prompted us to create a new variable up there computerMove so that we may return it as below.
     function pickComputerMove() {
         const randomNumber = Math.random();
         let computerMove = '';
