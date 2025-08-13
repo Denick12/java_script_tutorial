@@ -12,8 +12,13 @@
 <!--below we have our object called product-->
 <!--the object(product) has property name and price with their values-->
 <!--using the properties we can access the values associated to them-->
-<!--Here we use the dot i.e., console.log(product.name)-->
-<!--Also a property can be used to change a value inside the object-->
+<!--Here we use the dot notation i.e., console.log(product.name)-->
+<!--Also a property can be used to change a value inside the object using the dot notation-->
+<!--We can add a new property to our object property for example product.newProperty = true;-->
+<!--We can also delete the new property added by using delete product.newProperty;-->
+<!--We use objects to make our code more organized-->
+<!--Objects allows us to use multiple values together and group them together-->
+<!---->
 <script>
   const product = {
     name:'socks',
@@ -25,6 +30,10 @@
 
   product.name = 'cotton socks'
   console.log(product);
+  product.newProperty = true;
+  console.log(product)
+  delete product.newProperty;
+  console.log(product)
 </script>
 
 </body>
