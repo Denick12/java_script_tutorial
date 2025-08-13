@@ -18,31 +18,63 @@
 <!--We can also delete the new property added by using delete product.newProperty;-->
 <!--We use objects to make our code more organized-->
 <!--Objects allows us to use multiple values together and group them together-->
-<!---->
+<!--inside an object we can store/save any type of value-->
+<!--We cn also have a nested object, an object inside an object-->
+
 <script>
-  const product = {
-    name:'socks',
-    price:1090
-  };
-  console.log(product);
-  console.log(product.name);
-  console.log(product.price);
+    const product = {
+        name: 'socks',
+        price: 1090
+    };
+    console.log(product);
+    console.log(product.name);
+    console.log(product.price);
 
-  product.name = 'cotton socks'
-  console.log(product);
-  product.newProperty = true;
-  console.log(product)
-  delete product.newProperty;
-  console.log(product)
+    product.name = 'cotton socks'
+    console.log(product);
+    product.newProperty = true;
+    console.log(product)
+    delete product.newProperty;
+    console.log(product)
 
 
-  const product2 = {
-      name:'shirt',
-  };
-  console.log(product2)
-  console.log(product2.name)
-  console.log(product2['name'])
+    const product2 = {
+        name: 'shirt',
+        'delivery-time': '1 day',
+        rating: {
+            stars: 4.5,
+            count: 87
+        },
+        fun: function function1() {
+            console.log('function inside object');
+        }
+
+    };
+    console.log(product2)
+    // dot notation to access our values
+    // used by default as it is shorter
+    console.log(product2.name)
+    // using the bracket notation to access our values
+    // bracket notation allows us to use properties that normally do not work with dot notation
+    console.log(product2['name']);
+    console.log(product2['delivery-time']);
+    console.log(product2.rating.count)
+    console.log(product2.fun)
+
+    <!--JSON and Javascript Object -->
+    <!--JSON is universal -->
+    <!--JSON uses double quotes unlike javascript object that uses single quotes-->
+    <!--JSON does not support use of a function as an object as it is in the case with javascript object-->
+    <!--We use JSON when we send data between computers and when we store data-->
+    <!--Built in JSON object helps us convert Javascript Object to JSON-->
+    <!--Below we will convert our Javascript Object, product 2 with JSON object to JSON-->
+
+    const change = JSON.stringify(product2);
+    console.log(change);
+    console.log(typeof(change));
+    return_to_json_object = JSON.parse(change);
+    console.log(return_to_json_object);
+
 </script>
-
 </body>
 </html>
