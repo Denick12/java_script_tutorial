@@ -86,11 +86,13 @@
 //       A parameter puts a value in the fxn
 //     Parameter works the same as a variable
 //     We can save a value inside a parameter and then use it like a variable
-
-    function calculateTax(parameter1){
-        console.log(parameter1 * 0.1);
+// We pass the value into the parameter
+//     A parameter only exists inside the functions scope AND can only be used between the curly brackets
+    function calculateTax(amount,rate){
+        console.log(amount * rate);
     }
-    calculateTax(2000);
+    calculateTax(2000,0.1);
+    calculateTax(5000,0.12);
 
 </script>
 
