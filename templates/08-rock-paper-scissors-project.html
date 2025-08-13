@@ -40,11 +40,19 @@
     // let computerMove = '';   --Here we had this as a global variable but then returned it inside thr function
     // This then prompted us to create a new variable up there computerMove so that we may return it as below.
 
-    const score = {
-       wins: 0,
-       loses:0,
-       ties: 0
-    };
+    // const score = {
+    //    wins: 0,
+    //    loses:0,
+    //    ties: 0
+    // };
+
+
+    const score = JSON.parse(localStorage.getItem('score'))
+
+    // getting the item out of local storage
+    // console.log();
+
+
     // console.log(score)
     function pickComputerMove() {
         const randomNumber = Math.random();
@@ -100,7 +108,10 @@
         } else if (result === 'Tie.'){
             score.ties +=1;
         }
+        // saving our game results on a local storage so that when refreshed it does not restart
+        // local storage only supports strings
 
+        localStorage.setItem('score', JSON.stringify(score));
         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
         Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`)
     }
