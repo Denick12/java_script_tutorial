@@ -9,6 +9,7 @@
 </head>
 <body>
 <button>Hello</button>
+<button class="js-button">Second button</button>
 
 <script >
 
@@ -26,7 +27,13 @@
     document.body.innerHTML = '<button>Good Job!</button>'
 
     // document.querySelector allows us get any element from the page and put it into our javascript
+    // the '' string gets the element
     document.querySelector('button')
+    console.log(document.querySelector('button').innerHTML);
+    console.log(document.querySelector('button')
+        .innerHTML = 'Changed');
+    document.querySelector('.js-button');
+
 
     // document.body.innerHTML = "Hello";
     // document.title = "Good Job!";
