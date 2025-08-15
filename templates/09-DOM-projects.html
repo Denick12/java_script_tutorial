@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Projects</title>
+</head>
+<body>
+<p>YouTube Subscribe Button</p>
+<!--Algorithm for this is when we click the subscribe button,
+1. if the text is subscribe it changes to subscribed
+2. otherwise, change it back to Subscribe-->
+<button onclick="
+    const buttonElement = document.querySelector('.js-subscribe-button');
+
+    if (buttonElement.innerHTML === 'Subscribe'){
+        buttonElement.innerHTML = 'Subscribed';
+    } else {
+        buttonElement.innerHTML = 'Subscribe'
+    }
+    " class="js-subscribe-button">Subscribe</button>
+
+
+
+<!--<p>Rock Paper Scissors</p>-->
+<!--<p>Click here</p>-->
+
+<!--<p>Amazon Shipping Calculator</p>-->
+<!--<p>Orders under $40 =</p>-->
+<script>
+
+</script>
+</body>
+</html>
