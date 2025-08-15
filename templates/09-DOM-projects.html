@@ -13,14 +13,9 @@
 1. if the text is subscribe it changes to subscribed
 2. otherwise, change it back to Subscribe-->
 <button onclick="
-    const buttonElement = document.querySelector('.js-subscribe-button');
-    // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
-    if (buttonElement.innerHTML === 'Subscribe'){
-        buttonElement.innerHTML = 'Subscribed';
-    } else {
-        buttonElement.innerHTML = 'Subscribe'
-    }
-    " class="js-subscribe-button">Subscribe</button>
+    subscribe();
+    " class="js-subscribe-button">Subscribe
+</button>
 
 <!--<p>Rock Paper Scissors</p>-->
 <!--<p>Click here</p>-->
@@ -29,6 +24,15 @@
 <!--<p>Orders under $40 =</p>-->
 <script>
 
+    const buttonElement = document.querySelector('.js-subscribe-button');
+    // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
+    function subscribe() {
+        if (buttonElement.innerHTML === 'Subscribe') {
+            buttonElement.innerHTML = 'Subscribed';
+        } else {
+            buttonElement.innerHTML = 'Subscribe'
+        }
+    }
 </script>
 </body>
 </html>
