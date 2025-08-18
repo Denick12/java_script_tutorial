@@ -44,7 +44,8 @@
             loses: 0,
             ties: 0
         };
-        document.querySelector('.js-score').innerHTML
+        document.querySelector('.js-score')
+            .innerHTML = `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
 
         function pickComputerMove() {
             const randomNumber = Math.random();
