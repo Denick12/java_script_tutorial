@@ -17,10 +17,18 @@
     " class="js-subscribe-button">Subscribe
 </button>
 
+
 <script>
 
     const buttonElement = document.querySelector('.js-subscribe-button');
     // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
+        function subscribe() {
+        if (buttonElement.innerHTML === 'Subscribe') {
+            buttonElement.innerHTML = 'Subscribed';
+        } else {
+            buttonElement.innerHTML = 'Subscribe'
+        }
+    }
 
 </script>
 </body>
