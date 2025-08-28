@@ -1,22 +1,195 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% include 'head.html'%}
-    <title>cart</title>
+    {% include 'head.html' %}
+    <title>Menu</title>
+    <style>
+        /* Scroll view CSS */
+        .content-container {
+            overflow: auto;
+            height: 90vh;
+        }
 
-<!--    Scroll view css-->
-    .content-container {
-        over
-
-    }
+        /* Initially hide the reference box */
+        #reference_box {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+<div class="mx-4">
+    <!-- Navbar -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link {% if menu == "Food" %} active {% endif %}" href="{{ url_for('menu', menu_item="Food") }}">Food</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if menu == "Drink" %} active {% endif %}" href="{{ url_for('menu', menu_item="Drink") }}">Drinks</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if menu == "Breakfast" %} active {% endif %}" href="{{ url_for('menu', menu_item="Breakfast") }}">Breakfast</a>
+        </li>
+    </ul>
+</div>
 
+{% include 'flash_message.html' %}
 
+<!-- Mobile Cart Button -->
+<div class="d-block d-md-none text-end my-2 mx-3">
+    <button class="btn btn-primary" id="toggleCartBtn">View Cart</button>
+</div>
 
+<section class="row mx-4">
+    <!-- Menu Section -->
+    <div class="col-12 col-md-8 border">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 mt-2">
+            {% for row in item_groups %}
+                <div class="col">
+                    <div class="card h-100 btn btn-secondary bg-secondary filter" data-family-group="{{ row[0] }}">
+                        {{ row[0] }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <div id="menu-body" class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 my-2"
+             style="max-height: 75vh; overflow-y: auto;">
+            {% for row in menu_items %}
+                <div class="col">
+                    <div class="card h-100 p-3 btn btn-dark bg-dark text-white add-to-cart" data-food-id="{{ row[0] }}">
+                        {{ row[1] }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Cart Section for Desktop -->
+    <div class="col-md-4 mt-4 d-none d-md-block" id="cartDiv" style="overflow: auto; max-height: 100vh">
+        {% for item in cart_items %}
+            <div class="d-flex shadow border rounded p-4 my-2">
+                <div class="col-2 me-auto">
+                    {% if item[4] == "Open" %}
+                        <button class="remove-from-cart btn btn-danger" data-food-id="{{ item[0] }}">Void</button>
+                    {% elif item[4] == "Sent" %}
+                        <p class="badge bg-success m-0 p-2">{{ item[4] }}</p>
+                    {% elif item[4] == "Posted" %}
+                        <p class="badge bg-info text-dark m-0 p-2">{{ item[4] }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-7">
+                    {{ item[1] }} x {{ item[2] }}
+                </div>
+                <div class="ms-auto">
+                    Ksh {{ '{:,}'.format(item[3] * item[2]) }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Offcanvas Cart for Mobile -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 id="cartOffcanvasLabel">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        {% for item in cart_items %}
+            <div class="d-flex shadow border rounded p-4 my-2">
+                <div class="col-2 me-auto">
+                    {% if item[4] == "Open" %}
+                        <button class="remove-from-cart btn btn-danger" data-food-id="{{ item[0] }}">Void</button>
+                    {% elif item[4] == "Sent" %}
+                        <p class="badge bg-success m-0 p-2">{{ item[4] }}</p>
+                    {% elif item[4] == "Posted" %}
+                        <p class="badge bg-info text-dark m-0 p-2">{{ item[4] }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-7">{{ item[1] }} x {{ item[2] }}</div>
+                <div class="ms-auto">Ksh {{ '{:,}'.format(item[3] * item[2]) }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Cart Summary Section -->
+<section class="row m-4">
+    <h3>CHK {{ session['chk_number'] }}</h3>
+    {% if 'guest_id' in session and 'points' in session and 'event' in session %}
+        <h5>Points Remaining: {{ '{:,}'.format(session['points']) }} </h5>
+    {% endif %}
+    <div class="col-12 col-md-5 row border">
+        <div class="content-container col-md-10">
+            <table class="table table-hover" id="cart">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Qtty</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody class="cart-body" id="cart-body">
+                {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item[1] }}</td>
+                        <td>{{ '{:,}'.format(item[3]) }}</td>
+                        <td>{{ '{:,}'.format(item[2]) }}</td>
+                        <td>{{ '{:,}'.format(item[3] * item[2]) }}</td>
+                        <td>
+                            {% if item[4] == "Open" %}
+                                <button class="remove-from-cart btn btn-danger" data-food-id="{{ item[0] }}">Void</button>
+                            {% elif item[4] == "Sent" %}
+                                <p class="badge bg-success">{{ item[4] }}</p>
+                            {% elif item[4] == "Posted" %}
+                                <p class="badge bg-info text-dark">{{ item[4] }}</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4" id="total_row">Grand Total: {{ '{:,}'.format(total) }}</th>
+                    </tr>
+                    {% if 'balance' in session %}
+                        <tr>
+                            <th colspan="4">Balance: {{ session['balance'] }}</th>
+                        </tr>
+                    {% endif %}
+                    {% if 'guest_id' not in session and 'points' not in session and 'event' not in session %}
+                        <tr>
+                            <td colspan="4">
+                                <a href="{{ url_for('send_to_kitchen') }}" class="btn btn-primary">Send Order</a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tfoot>
+            </table>
+        </div>
+        <div class="quantity-selection col-md-1">
+            <div id="quantity-buttons">
+                {% for i in range(0, 10) %}
+                    <button class="quantity-btn btn btn-secondary {% if i == 1 %} btn-success{% endif %} mt-2 mb-2"
+                            data-quantity="{{ i }}" style="width:50px">{{ i }}</button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const majorGroup = "{{ menu }}";
+    const csrf = "{{ csrf_token() }}";
+
+    // Toggle Offcanvas Cart on Mobile
+    const toggleCartBtn = document.getElementById('toggleCartBtn');
+    toggleCartBtn.addEventListener('click', () => {
+        const cartOffcanvas = new bootstrap.Offcanvas(document.getElementById('cartOffcanvas'));
+        cartOffcanvas.show();
+    });
+</script>
+<script src="{{ url_for('static', filename="js/function.js") }}"></script>
 </body>
 </html>
