@@ -18,12 +18,8 @@
 </button>
 
 <button onclick="
-const approveButton = document.querySelector('.js-approve-button');
-
-" class="js-approve-button">Approve</button>
-
-
-
+approve();
+" class="js-approve">Approve</button>
 <script>
     const buttonElement = document.querySelector('.js-subscribe-button');
     // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
@@ -35,6 +31,14 @@ const approveButton = document.querySelector('.js-approve-button');
         }
     }
 
+    const approveButton = document.querySelector('.js-approve')
+    function approve(){
+         if (approveButton.innerHTML === 'Approve'){
+             approveButton.innerHTML = 'Approved'
+         }  else {
+             approveButton.innerHTML ='Approve'
+         }
+    }
 
 </script>
 </body>
