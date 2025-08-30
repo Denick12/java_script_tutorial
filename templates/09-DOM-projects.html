@@ -44,48 +44,48 @@ approve();
 </body>
 </html>
 
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-<!--  <title>Approve Button Example</title>-->
-<!--  <style>-->
-<!--    .approve-btn {-->
-<!--      padding: 12px 20px;-->
-<!--      border: none;-->
-<!--      border-radius: 6px;-->
-<!--      color: white;-->
-<!--      font-size: 16px;-->
-<!--      cursor: pointer;-->
-<!--      transition: background-color 0.4s ease; /* 👈 smooth color change */-->
-<!--    }-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Approve Button Example</title>
+  <style>
+    .approve-btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.4s ease; /* 👈 smooth color change */
+    }
 
-<!--    .red {-->
-<!--      background-color: red;-->
-<!--    }-->
+    .red {
+      background-color: red;
+    }
 
-<!--    .green {-->
-<!--      background-color: green;-->
-<!--    }-->
-<!--  </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--  &lt;!&ndash; Inline onclick &ndash;&gt;-->
-<!--  <button onclick="approve();" class="approve-btn red js-approve">Approve</button>-->
+    .green {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <!-- Inline onclick -->
+  <button onclick="approve();" class="approve-btn red js-approve">Approve</button>
 
-<!--  <script>-->
-<!--    const approveButton = document.querySelector('.js-approve');-->
+  <script>
+    const approveButton = document.querySelector('.js-approve');
 
-<!--    function approve() {-->
-<!--      if (approveButton.innerHTML === "Approve") {-->
-<!--        approveButton.innerHTML = "Approved";-->
-<!--        approveButton.classList.remove("red");-->
-<!--        approveButton.classList.add("green");-->
-<!--      } else {-->
-<!--        approveButton.innerHTML = "Approve";-->
-<!--        approveButton.classList.remove("green");-->
-<!--        approveButton.classList.add("red");-->
-<!--      }-->
-<!--    }-->
-<!--  </script>-->
-<!--</body>-->
-<!--</html>-->
+    function approve() {
+      if (approveButton.innerHTML === "Approve") {
+        approveButton.innerHTML = "Approved";
+        approveButton.classList.remove("red");
+        approveButton.classList.add("green");
+      } else {
+        approveButton.innerHTML = "Approve";
+        approveButton.classList.remove("green");
+        approveButton.classList.add("red");
+      }
+    }
+  </script>
+</body>
+</html>
