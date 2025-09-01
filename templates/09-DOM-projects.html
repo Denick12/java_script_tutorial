@@ -17,8 +17,9 @@
     " class="js-subscribe-button">Subscribe
 </button>
 
-
-
+<button onclick="
+approve();
+" class="js-approve">Approve</button>
 <script>
     const buttonElement = document.querySelector('.js-subscribe-button');
     // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
@@ -30,7 +31,61 @@
         }
     }
 
+    const approveButton = document.querySelector('.js-approve')
+    function approve(){
+         if (approveButton.innerHTML === 'Approve'){
+             approveButton.innerHTML = 'Approved'
+         }  else {
+             approveButton.innerHTML ='Approve'
+         }
+    }
 
 </script>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <title>Approve Button Example</title>-->
+<!--  <style>-->
+<!--    .approve-btn {-->
+<!--      padding: 12px 20px;-->
+<!--      border: none;-->
+<!--      border-radius: 6px;-->
+<!--      color: white;-->
+<!--      font-size: 16px;-->
+<!--      cursor: pointer;-->
+<!--      transition: background-color 0.4s ease; /* 👈 smooth color change */-->
+<!--    }-->
+
+<!--    .red {-->
+<!--      background-color: red;-->
+<!--    }-->
+
+<!--    .green {-->
+<!--      background-color: green;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--  &lt;!&ndash; Inline onclick &ndash;&gt;-->
+<!--  <button onclick="approve();" class="approve-btn red js-approve">Approve</button>-->
+
+<!--  <script>-->
+<!--    const approveButton = document.querySelector('.js-approve');-->
+
+<!--    function approve() {-->
+<!--      if (approveButton.innerHTML === "Approve") {-->
+<!--        approveButton.innerHTML = "Approved";-->
+<!--        approveButton.classList.remove("red");-->
+<!--        approveButton.classList.add("green");-->
+<!--      } else {-->
+<!--        approveButton.innerHTML = "Approve";-->
+<!--        approveButton.classList.remove("green");-->
+<!--        approveButton.classList.add("red");-->
+<!--      }-->
+<!--    }-->
+<!--  </script>-->
+<!--</body>-->
+<!--</html>-->
