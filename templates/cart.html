@@ -52,3 +52,48 @@
   </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Subscribe Button</title>
+  <style>
+    .subscribe-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .subscribed {
+      background-color: gray;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button id="subscribeBtn" class="subscribe-btn">Subscribe</button>
+
+  <script>
+    const subscribeBtn = document.getElementById("subscribeBtn");
+
+    subscribeBtn.addEventListener("click", () => {
+      if (subscribeBtn.textContent === "Subscribe") {
+        subscribeBtn.textContent = "Subscribed";
+        subscribeBtn.classList.add("subscribed");
+      } else {
+        subscribeBtn.textContent = "Subscribe";
+        subscribeBtn.classList.remove("subscribed");
+      }
+    });
+  </script>
+</body>
+</html>
+
