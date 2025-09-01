@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Button Example</title>
+  <style>
+    .cart-btn {
+      background-color: #2d89ef;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cart-count {
+      background: red;
+      color: white;
+      font-size: 14px;
+      border-radius: 50%;
+      padding: 4px 8px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cart button -->
+  <button class="cart-btn">
+    🛒 Cart <span class="cart-count" id="cart-count">0</span>
+  </button>
+
+  <!-- Add to cart button -->
+  <button id="add-item">Add Item</button>
+
+  <script>
+    // Get elements
+    const cartCount = document.getElementById("cart-count");
+    const addItemBtn = document.getElementById("add-item");
+
+    let count = 0;
+
+    // Increase cart count on click
+    addItemBtn.addEventListener("click", () => {
+      count++;
+      cartCount.textContent = count;
+    });
+  </script>
+</body>
+</html>
