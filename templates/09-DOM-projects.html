@@ -27,10 +27,13 @@ approve();
 <!--Display total on the page-->
 
 <p>Amazon Shipping Calculator</p>
-<input placeholder="Cost of Order">
-<button>Calculate</button>
+<input placeholder="Cost of Order" class="js-cost-input">
+<button onclick="
+    calculateTotal();
+">Calculate</button>
 
 <script>
+
     const buttonElement = document.querySelector('.js-subscribe-button');
     // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
         function subscribe() {
@@ -48,6 +51,10 @@ approve();
          }  else {
              approveButton.innerHTML ='Approve'
          }
+    }
+
+    function calculateTotal(){
+        console.log(document.querySelector('.js-cost-input'));
     }
 
 </script>
