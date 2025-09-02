@@ -25,7 +25,10 @@
     ">Scissors
 </button>
 
-<P class="js-score"></P>
+<P class="js-results"></P>
+<p class="js-moves"></p>
+<p class="js-score"></p>
+
 
 <button onclick="
     score.wins = 0;
@@ -198,9 +201,10 @@
         localStorage.setItem('score', JSON.stringify(score));
 
         // ✅ Update DOM instead of alert
-        document.querySelector('.js-score').innerHTML = `
-            You picked <b>${playerMove}</b>. Computer picked <b>${computerMove}</b>. <br>
-            <b>${result}</b><br>
+        document.querySelector('.js-results').innerHTML = result;
+
+        document.querySelector('.js-score').innerHTML =
+            `You picked <b>${playerMove}</b>. Computer picked <b>${computerMove}</b>. <br> <br>
             Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}
         `;
     }
