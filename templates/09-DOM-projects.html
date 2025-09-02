@@ -32,6 +32,8 @@ approve();
     calculateTotal();
 ">Calculate</button>
 
+<p class="js-total-cost"></p>
+
 <script>
 
     const buttonElement = document.querySelector('.js-subscribe-button');
@@ -53,8 +55,17 @@ approve();
          }
     }
 
+    // Amazon Shipping Calculator
     function calculateTotal(){
-        console.log(document.querySelector('.js-cost-input'));
+        const inputElement = document.querySelector('.js-cost-input');
+        // getting a text inside a textbox we use .value
+        let cost = inputElement.value;
+
+        if (cost < 40){
+            cost += 10
+        };
+        document.querySelector('.js-total-cost')
+            .innerHTML = `$${cost}`
     }
 
 </script>
