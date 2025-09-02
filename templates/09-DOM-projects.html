@@ -60,9 +60,13 @@ approve();
         const inputElement = document.querySelector('.js-cost-input');
         // getting a text inside a textbox we use .value
         let cost = inputElement.value;
+        console.log(cost);
 
         if (cost < 40){
             cost += 10
+
+            console.log(cost);
+            console.log(typeof cost)
         };
         document.querySelector('.js-total-cost')
             .innerHTML = `$${cost}`
