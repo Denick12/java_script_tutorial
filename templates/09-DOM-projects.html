@@ -59,7 +59,7 @@ approve();
     function calculateTotal(){
         const inputElement = document.querySelector('.js-cost-input');
         // getting a text inside a textbox we use .value
-        let cost = inputElement.value;
+        let cost = Number(inputElement.value);
         console.log(cost);
 
         if (cost < 40){
