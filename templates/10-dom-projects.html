@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Projects</title>
+    <style>
+        button{
+
+        }
+    </style>
+</head>
+<body>
+<p>YouTube Subscribe Button</p>
+<!--Algorithm for this is when we click the subscribe button,
+1. if the text is subscribe it changes to subscribed
+2. otherwise, change it back to Subscribe-->
+<button onclick="
+    subscribe();
+    " class="js-subscribe-button">Subscribe
+</button>
+
+<!--here we want to-->
+<!--1. Get the text in the text box-->
+<!--If amount <$40, add $10-->
+<!--Display total on the page-->
+
+<p>Amazon Shipping Calculator</p>
+<input placeholder="Cost of Order" class="js-cost-input">
+<button onclick="
+    calculateTotal();
+">Calculate</button>
+
+<p class="js-total-cost"></p>
+
+<script>
+
+    const buttonElement = document.querySelector('.js-subscribe-button');
+    // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
+        function subscribe() {
+        if (buttonElement.innerHTML === 'Subscribe') {
+            buttonElement.innerHTML = 'Subscribed';
+        } else {
+            buttonElement.innerHTML = 'Subscribe'
+        }
+    }
+
+    // Amazon Shipping Calculator
+    function calculateTotal(){
+        const inputElement = document.querySelector('.js-cost-input');
+        // getting a text inside a textbox we use .value
+        let cost = Number(inputElement.value);
+        console.log(cost);
+
+        if (cost < 40){
+            cost += 10
+
+            console.log(cost);
+            console.log(typeof cost)
+        };
+        document.querySelector('.js-total-cost')
+            .innerHTML = `$${cost}`
+    }
+
+</script>
+</body>
+</html>
+
+
