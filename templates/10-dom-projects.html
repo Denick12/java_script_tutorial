@@ -28,6 +28,23 @@
             background-color: rgb(240, 240, 240);
             color: black;
         }
+        .cost-input{
+            width: auto;
+            height: 30px;
+            font-size: 15px;
+            padding: 8px;
+            text-align: center;
+        }
+        .css-calculate{
+            color: white;
+            background-color: green;
+            height: 50px;
+            width: 100px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
 
     </style>
 </head>
@@ -47,10 +64,10 @@
 <!--Display total on the page-->
 
 <p>Amazon Shipping Calculator</p>
-<input placeholder="Cost of Order" class="js-cost-input">
+<input placeholder="Cost of Order" class="js-cost-input cost-input">
 <button onclick="
     calculateTotal();
-">Calculate
+" class="css-calculate">Calculate
 </button>
 
 <p class="js-total-cost"></p>
