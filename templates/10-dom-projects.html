@@ -7,8 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DOM Projects</title>
     <style>
-        button{
-
+        .subscribe-button{
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .is-subscribed {
+            background-color: rgb(240, 240, 240);
+            color: black;
         }
     </style>
 </head>
@@ -19,7 +29,7 @@
 2. otherwise, change it back to Subscribe-->
 <button onclick="
     subscribe();
-    " class="js-subscribe-button">Subscribe
+    " class="js-subscribe-button subscribe-button">Subscribe
 </button>
 
 <!--here we want to-->
@@ -40,10 +50,12 @@
     const buttonElement = document.querySelector('.js-subscribe-button');
     // in case we have spaces between the buttons(i.e., <button>  Subscribe </button>, use innerText element
         function subscribe() {
-        if (buttonElement.innerHTML === 'Subscribe') {
+        if (buttonElement.innerText === 'Subscribe') {
             buttonElement.innerHTML = 'Subscribed';
+            buttonElement.classList.add('is-subscribed');
         } else {
             buttonElement.innerHTML = 'Subscribe'
+            buttonElement.classList.remove('is-subscribed')
         }
     }
 
