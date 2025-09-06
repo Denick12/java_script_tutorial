@@ -31,6 +31,8 @@
             cursor: pointer;
 
         }
+
+
     </style>
 </head>
 <body>
@@ -67,14 +69,7 @@
 </button>
 
 <script>
-    let score = JSON.parse(localStorage.getItem('score'));
-    if (score === null) {
-        score = {
-            wins: 0,
-            loses: 0,
-            ties: 0
-        };
-    }
+
 
     // Show the current score on page load
     document.querySelector('.js-score').innerHTML =
