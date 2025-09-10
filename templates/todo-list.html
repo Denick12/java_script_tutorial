@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+
+    <style>
+        body{
+            margin: 20px;
+            text-align: center;
+            font-family: "Arial Black";
+        }
+        .title{
+            text-align: center;
+            font-weight: bold;
+        }
+        .add{
+            padding: 5px;
+            color: black;
+            border-radius: 8px;
+            background-color: #2d89ef;
+        }
+        .js-name-input{
+            padding: 5px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <p class="title">Todo List</p>
+    <input type="text" placeholder="Todo name" class="js-name-input">
+    <button onclick="addTodo()" class="add">Add</button>
+
+    <ul class="js-todo-list"></ul>
+
+    <script src="scripts/11-todo-list.js"></script>
+</body>
+</html>
