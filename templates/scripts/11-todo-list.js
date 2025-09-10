@@ -8,4 +8,7 @@ function addTodo(){
 
     todoList.push(name);
     console.log(todoList)
+
+//     resetting the text box
+    inputElement.value = '';
 }
