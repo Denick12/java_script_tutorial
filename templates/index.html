@@ -1,3 +1,118 @@
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Document</title>-->
+
+<!--    <style>-->
+<!--        :root{-->
+<!--  &#45;&#45;ui-bg: #fff;-->
+<!--  &#45;&#45;ui-text: #0f172a;         /* slate-900 */-->
+<!--  &#45;&#45;ui-muted: #64748b;        /* slate-500 */-->
+<!--  &#45;&#45;ui-accent: #2563eb;       /* blue-600 */-->
+<!--  &#45;&#45;ui-ring:  0 0 0 4px rgba(37, 99, 235, .15);-->
+<!--  &#45;&#45;radius: 999px;            /* pill */-->
+<!--  &#45;&#45;shadow: 0 1px 2px rgba(2,8,20,.06), 0 4px 12px rgba(2,8,20,.04);-->
+<!--}-->
+
+<!--/* container */-->
+<!--.menu-bar{-->
+<!--  display:flex;-->
+<!--  align-items:center;-->
+<!--  justify-content:space-between;-->
+<!--  gap:1rem;-->
+<!--  padding:0.75rem 1rem;-->
+<!--  background:var(&#45;&#45;ui-bg);-->
+<!--  border-bottom:1px solid #e5e7eb; /* light divider */-->
+<!--}-->
+
+<!--/* tabs */-->
+<!--.tabs{-->
+<!--  display:flex;-->
+<!--  gap:.5rem;-->
+<!--  list-style:none;-->
+<!--  margin:0;-->
+<!--  padding:0;-->
+<!--}-->
+
+<!--.tab{-->
+<!--  cursor:pointer;-->
+<!--  border:0;-->
+<!--  background:transparent;-->
+<!--  color:var(&#45;&#45;ui-text);-->
+<!--  padding:.5rem .9rem;-->
+<!--  border-radius:var(&#45;&#45;radius);-->
+<!--  font-size:1rem;-->
+<!--  line-height:1;-->
+<!--  transition:background .2s ease, color .2s ease, transform .05s;-->
+<!--}-->
+
+<!--.tab:hover{ background:#f1f5f9; }                  /* subtle hover */-->
+<!--.tab:active{ transform:translateY(1px); }           /* tap feedback */-->
+<!--.tab.is-active{-->
+<!--  background:rgba(37,99,235,.12);-->
+<!--  color:var(&#45;&#45;ui-accent);-->
+<!--  box-shadow:inset 0 0 0 1px rgba(37,99,235,.25);-->
+<!--}-->
+
+<!--/* keyboard focus */-->
+<!--.tab:focus-visible,-->
+<!--.search input:focus-visible{-->
+<!--  outline:none;-->
+<!--  box-shadow:var(&#45;&#45;ui-ring);-->
+<!--}-->
+
+<!--/* search */-->
+<!--.search{ min-width: 260px; }-->
+<!--.search input{-->
+<!--  width:100%;-->
+<!--  padding:.55rem .9rem .55rem 2.2rem;               /* room for icon */-->
+<!--  border:1px solid #dbe1ea;-->
+<!--  border-radius:12px;-->
+<!--  background:#fff-->
+<!--    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-3.5-3.5'/%3E%3C/svg%3E")-->
+<!--    no-repeat 10px 50%;-->
+<!--  box-shadow:var(&#45;&#45;shadow);-->
+<!--  font-size:1rem;-->
+<!--  color:var(&#45;&#45;ui-text);-->
+<!--}-->
+<!--.search input::placeholder{ color:var(&#45;&#45;ui-muted); }-->
+
+<!--/* responsive: stack + full-width search on small screens */-->
+<!--@media (max-width:700px){-->
+<!--  .menu-bar{-->
+<!--    flex-wrap:wrap;-->
+<!--    gap:.75rem 1rem;-->
+<!--  }-->
+<!--  .tabs{ order:1; flex:1 1 auto; flex-wrap:wrap; }-->
+<!--  .search{ order:2; flex:1 1 100%; min-width:auto; }-->
+<!--}-->
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Hello World</h1>-->
+
+<!--&lt;!&ndash; minimal structure &ndash;&gt;-->
+<!--<nav class="menu-bar">-->
+<!--  <ul class="tabs" role="tablist">-->
+<!--    <li><button class="tab is-active" role="tab">Food</button></li>-->
+<!--    <li><button class="tab" role="tab">Drinks</button></li>-->
+<!--    <li><button class="tab" role="tab">Breakfast</button></li>-->
+<!--  </ul>-->
+
+<!--  <form class="search">-->
+<!--    <input type="search" placeholder="Search…" aria-label="Search menu" />-->
+<!--  </form>-->
+<!--</nav>-->
+
+<!--<script src="index.js"> </script>-->
+<!--</body>-->
+<!--</html>-->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +123,74 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Hello World</h1>
-<script src="index.js"> </script>
+
+<style>
+    /* CSS: for .search-container and .search-input (appearance unchanged) */
+    /*.search-container {*/
+    /*  min-width: 260px;*/
+    /*  display: block;            !* keeps the element block-level so width behaves predictably *!*/
+    /*}*/
+
+    /* The input itself */
+    .search-input {
+        /* size: choose either fixed min-width or fluid width; 260px matches earlier design */
+        min-width: 260px; /* recommended for same look as before */
+        width: 100%; /* if you want it to fill a parent; change to e.g. 260px to fix size */
+        cursor: text; /* correct cursor for text entry */
+        border-radius: 12px;
+        border: 1px solid #dbe1ea;
+
+        /* padding: top right bottom left — leaves room for the icon on the left */
+        padding: .55rem .9rem .55rem 2.2rem;
+
+        /* inline SVG icon (no changes to look) */
+        background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-3.5-3.5'/%3E%3C/svg%3E") no-repeat 10px 50%;
+
+        box-shadow: 0 1px 2px rgba(2, 8, 20, .06), 0 4px 12px rgba(2, 8, 20, .04);
+        font-size: 1rem;
+        color: #0f172a;
+        outline: none;
+        box-sizing: border-box;
+    }
+
+    /* placeholder color (unchanged) */
+    .search-input::placeholder {
+        color: #64748b;
+    }
+
+    /* focus ring for accessibility */
+    .search-input:focus-visible {
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, .15);
+    }
+
+
+    /*placeholder color */
+    /*.search-input::placeholder {*/
+    /*  color: #64748b;*/
+    /*}*/
+
+    /* focus-visible ring for accessibility */
+    /*.search-input:focus-visible {*/
+    /*  box-shadow: 0 0 0 4px rgba(37,99,235,.15); !* same ring as before *!*/
+    /*}*/
+
+    /*small-screen helper: make it expand naturally when used inside flexible containers */
+    /*@media (max-width: 700px) {*/
+    /*  .search-container { min-width: 20px; width: 100%; }*/
+    /*}*/
+
+</style>
+
+<!-- HTML: isolated search component -->
+<form class="search-container" role="search" aria-label="Search menu">
+    <input
+            type="search"
+            class="search-input"
+            placeholder="Search…"
+            aria-label="Search"
+    />
+</form>
+
+
 </body>
 </html>
