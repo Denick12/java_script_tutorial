@@ -11,4 +11,5 @@ function addTodo(){
 
 //     resetting the text box
     inputElement.value = '';
+    console.log()
 }
