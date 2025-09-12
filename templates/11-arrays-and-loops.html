@@ -41,8 +41,34 @@ while(i<=5){
 
 
 
-for(let e=1; e<=5; e+=1){
+for(let e=1; e<=5; e++){
     console.log(e)
+}
+
+// Suppose you want to print all numbers from 1 to 100.
+for(let f=1; f<=100; f++){
+    console.log("Number:" ,f)
+}
+
+// simulate a login system where the user must enter the correct password.
+// We’ll keep asking until they type "secret"
+let password = "";
+const correctPassword = "secret";
+
+while (password !== correctPassword) {
+  password = prompt("Enter your password:");
+}
+
+console.log("Access granted!");
+// looping through an array
+const todoList = [
+    'make dinner',
+    'wash dishes',
+    'watch youtube'
+];
+for(let index =0; index<=todoList.length-1; index+=1){
+    const value= todoList[index]
+    console.log(value);
 }
 </script>
 
