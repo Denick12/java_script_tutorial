@@ -36,3 +36,9 @@ while i < len(nums):
 
 print(nums_doubled)
 
+# alternatively
+nums = [1, 2, 3, 4]
+nums_doubled = [num * 2 for num in nums]
+print(nums_doubled)
+
+
