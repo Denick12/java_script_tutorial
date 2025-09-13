@@ -7,6 +7,15 @@ for bill in bills:
 
 print("Total revenue for the day: ${:.2f}".format(total_revenue))
 
+cart = [12.99, 23.50, 9.75, 60, 40]
+total = 0
+
+for price in cart:
+    total += price
+
+print("Total price: ${:.2f}".format(total))
+
+
 
 grades = [75, 88, 92, 64, 80]
 total = 0
