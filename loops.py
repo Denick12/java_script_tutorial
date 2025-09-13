@@ -15,8 +15,6 @@ for price in cart:
 
 print("Total price: ${:.2f}".format(total))
 
-
-
 grades = [75, 88, 92, 64, 80]
 total = 0
 
@@ -25,4 +23,3 @@ for grade in grades:
 
 average = total / len(grades)
 print("Average grade:", average)
-
