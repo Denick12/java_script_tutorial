@@ -24,15 +24,14 @@ for grade in grades:
 average = total / len(grades)
 print("Average grade:", average)
 
-
-nums = [1, 2, 3, 4]   # Example input list
+nums = [1, 2, 3, 4]  # Example input list
 nums_doubled = []
 
 i = 0
 while i < len(nums):
     num = nums[i]
     nums_doubled.append(num * 2)
-    i+=1
+    i += 1
 
 print(nums_doubled)
 
@@ -40,5 +39,3 @@ print(nums_doubled)
 nums = range(1, 1000)
 nums_doubled = [num * 2 for num in nums]
 print(nums_doubled)
-
-
