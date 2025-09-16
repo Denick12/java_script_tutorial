@@ -11,6 +11,8 @@ function addTodo (){
     // console.log(name)
     todoList.push(name)
     console.log(todoList);
+
+    inputElement.value = '';
 }
 
 
