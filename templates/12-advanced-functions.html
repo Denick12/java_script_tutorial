@@ -36,6 +36,14 @@
   }
 
   display(2)
+
+  // passing a function into another function
+  function run(param){
+      param();
+  }
+  run(function(){
+      console.log('hello4')
+  });
 </script>
 
 </body>
