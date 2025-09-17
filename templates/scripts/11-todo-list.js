@@ -1,7 +1,8 @@
 // create array to store todos
 // When we click add
-// Get a text from the textbox
-// Add it to our array
+// Get a text from the textbox using the document.querySelector()
+// Now obtain the value of what was gotten from the text box using .value
+// Add it to our array using .push()
 // console.log the array
 
 const todoList = [];
@@ -13,6 +14,7 @@ function addTodo (){
     console.log(todoList);
 
     inputElement.value = '';
+
 }
 
 
