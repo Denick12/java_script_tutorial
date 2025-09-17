@@ -73,7 +73,8 @@
 
 <button onclick="
 autoPlay();
-" class="reset-button">Auto Play</button>
+" class="reset-button">Auto Play
+</button>
 
 <script>
     let score = JSON.parse(localStorage.getItem('score'));
@@ -104,11 +105,23 @@ autoPlay();
         return computerMove;
     }
 
-    function autoPlay(){
-        setInterval(function (){
-            const playerMove = pickComputerMove();
-            playGame(playerMove);
-        },1000)
+    // autoplay function
+
+    let isAutoPlaying = false;
+    let  intervalId;
+
+    function autoPlay() {
+        if (!isAutoPlaying) {
+            intervalId = setInterval(function () {
+                const playerMove = pickComputerMove();
+                playGame(playerMove);
+            }, 1000)
+
+            isAutoPlaying = true;
+        } else {
+            clearInterval(intervalId);
+            isAutoPlaying = false;
+        }
     }
 
     function playGame(playerMove) {
